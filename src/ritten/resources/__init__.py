@@ -6,7 +6,9 @@ Ritten SDK Resources.
 """
 
 from ritten.resources.resource import Resource
+from ritten.resources.calendar import Calendar
 
 __all__ = [
     "Resource",
+    "Calendar",
 ]

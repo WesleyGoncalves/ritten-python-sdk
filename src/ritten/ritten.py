@@ -13,6 +13,9 @@ from ritten.auth import Auth
 from ritten.config import Config
 from ritten.decorators import exception_handler
 from ritten.exceptions import RittenClientError, RittenAPIError, ERROR_MAP
+from ritten.resources import (
+    Calendar,
+)
 
 
 class Ritten:
@@ -86,3 +89,10 @@ class Ritten:
     def auth(self):
         """Access the Auth service."""
         return Auth(self.config)
+
+    # --- Resource Accessors ---
+
+    @cached_property
+    def calendar(self):
+        """Access the Calendar resource."""
+        return Calendar(self.client)
