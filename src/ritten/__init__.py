@@ -30,6 +30,7 @@ from ritten.resources import (
     Forms,
     Insurance,
     Patients,
+    Users,
 )
 from ritten.storage import TokenStorage, MemoryStorage
 
@@ -56,6 +57,7 @@ __all__ = [
     "Forms",
     "Insurance",
     "Patients",
+    "Users",
 ]
 
 

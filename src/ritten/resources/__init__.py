@@ -12,6 +12,7 @@ from ritten.resources.contacts import Contacts
 from ritten.resources.forms import Forms
 from ritten.resources.insurance import Insurance
 from ritten.resources.patients import Patients
+from ritten.resources.users import Users
 
 __all__ = [
     "Resource",
@@ -21,4 +22,5 @@ __all__ = [
     "Forms",
     "Insurance",
     "Patients",
+    "Users",
 ]
