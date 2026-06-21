@@ -25,6 +25,7 @@ from ritten.exceptions import (
 from ritten.resources import (
     Resource,
     Calendar,
+    Cases,
 )
 from ritten.storage import TokenStorage, MemoryStorage
 
@@ -46,6 +47,7 @@ __all__ = [
     "RittenServerError",
     "Resource",
     "Calendar",
+    "Cases",
 ]
 
 

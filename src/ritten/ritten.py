@@ -15,6 +15,7 @@ from ritten.decorators import exception_handler
 from ritten.exceptions import RittenClientError, RittenAPIError, ERROR_MAP
 from ritten.resources import (
     Calendar,
+    Cases,
 )
 
 
@@ -96,3 +97,8 @@ class Ritten:
     def calendar(self):
         """Access the Calendar resource."""
         return Calendar(self.client)
+
+    @cached_property
+    def cases(self):
+        """Access the Cases resource."""
+        return Cases(self.client)

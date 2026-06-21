@@ -7,8 +7,10 @@ Ritten SDK Resources.
 
 from ritten.resources.resource import Resource
 from ritten.resources.calendar import Calendar
+from ritten.resources.cases import Cases
 
 __all__ = [
     "Resource",
     "Calendar",
+    "Cases",
 ]
