@@ -9,7 +9,7 @@ Ritten API specifications:
 
 ## Installation
 
-The SDK requires **Python 3.8 or higher**. Install it directly via `pip`:
+The SDK requires **Python 3.10 or higher**. Install it directly via `pip`:
 
 ```bash
 pip install ritten-python-sdk
