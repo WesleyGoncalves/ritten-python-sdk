@@ -22,10 +22,14 @@ from ritten.exceptions import (
     RittenRateLimitError,
     RittenServerError,
 )
+from ritten.resources import (
+    Resource,
+)
 from ritten.storage import TokenStorage, MemoryStorage
 
 __all__ = [
     "Ritten",
+    "Auth",
     "Config",
     "TokenStorage",
     "MemoryStorage",
@@ -39,7 +43,7 @@ __all__ = [
     "RittenNotFoundError",
     "RittenRateLimitError",
     "RittenServerError",
-    "Auth",
+    "Resource",
 ]
 
 
