@@ -18,6 +18,7 @@ from ritten.resources import (
     Cases,
     Contacts,
     Forms,
+    Insurance,
 )
 
 
@@ -114,3 +115,8 @@ class Ritten:
     def forms(self):
         """Access the Forms resource."""
         return Forms(self.client)
+
+    @cached_property
+    def insurance(self):
+        """Access the Insurance resource."""
+        return Insurance(self.client)

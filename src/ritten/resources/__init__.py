@@ -10,6 +10,7 @@ from ritten.resources.calendar import Calendar
 from ritten.resources.cases import Cases
 from ritten.resources.contacts import Contacts
 from ritten.resources.forms import Forms
+from ritten.resources.insurance import Insurance
 
 __all__ = [
     "Resource",
@@ -17,4 +18,5 @@ __all__ = [
     "Cases",
     "Contacts",
     "Forms",
+    "Insurance",
 ]
