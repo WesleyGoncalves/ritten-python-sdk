@@ -19,6 +19,7 @@ from ritten.resources import (
     Contacts,
     Forms,
     Insurance,
+    Patients,
 )
 
 
@@ -120,3 +121,8 @@ class Ritten:
     def insurance(self):
         """Access the Insurance resource."""
         return Insurance(self.client)
+
+    @cached_property
+    def patients(self):
+        """Access the Patients resource."""
+        return Patients(self.client)
