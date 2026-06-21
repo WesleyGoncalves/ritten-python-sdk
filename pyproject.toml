@@ -1,0 +1,31 @@
+[project]
+name = "ritten-python-sdk"
+version = "0.1.0"
+description = "Python SDK for connecting applications to the [Ritten EMR Platform](https://docs.ritten.io/). This library simplifies integration with Ritten's Behavioral Health Operations API, allowing developers to use Ritten API seamlessly from any Python environment."
+keywords = ["ritten", "emr", "healthcare", "sdk", "python"]
+authors = [
+    {name = "Wesley Gonçalves",email = "dev@wesleygoncalves.com"}
+]
+license-files = ["LICENSE"]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "httpx (>=0.28.1,<0.29.0)",
+    "pydantic (>=2.13.4,<3.0.0)"
+]
+
+[project.urls]
+homepage = "https://github.com/wesleygoncalves/ritten-python-sdk"
+source = "https://github.com/wesleygoncalves/ritten-python-sdk"
+issues = "https://github.com/wesleygoncalves/ritten-python-sdk/issues"
+changelog = "https://github.com/wesleygoncalves/ritten-python-sdk/blob/main/CHANGELOG.md"
+documentation = "https://github.com/wesleygoncalves/ritten-python-sdk/blob/main/README.md"
+
+[tool.poetry]
+packages = [
+    { include = "ritten", from = "src" },
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
