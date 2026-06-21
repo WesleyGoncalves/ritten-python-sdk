@@ -17,6 +17,7 @@ from ritten.resources import (
     Calendar,
     Cases,
     Contacts,
+    Forms,
 )
 
 
@@ -108,3 +109,8 @@ class Ritten:
     def contacts(self):
         """Access the Contacts resource."""
         return Contacts(self.client)
+
+    @cached_property
+    def forms(self):
+        """Access the Forms resource."""
+        return Forms(self.client)

@@ -27,6 +27,7 @@ from ritten.resources import (
     Calendar,
     Cases,
     Contacts,
+    Forms,
 )
 from ritten.storage import TokenStorage, MemoryStorage
 
@@ -50,6 +51,7 @@ __all__ = [
     "Calendar",
     "Cases",
     "Contacts",
+    "Forms",
 ]
 
 
