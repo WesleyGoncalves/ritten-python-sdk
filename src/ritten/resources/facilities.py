@@ -26,8 +26,8 @@ class Facilities(Resource):
         self,
         limit: int = 20,
         offset: int = 0,
-        search: str = None,
-        created_after: datetime = None,
+        search: str | None = None,
+        created_after: datetime | None = None,
     ) -> Dict[str, Any]:
         """Lists active clinic facilities.
 
@@ -51,7 +51,4 @@ class Facilities(Resource):
     def update(self, id: str, name: str) -> None | Dict[str, Any]:
         """Updates an existing facility by ID."""
         payload = {"name": name}
-        return self._client.patch(
-            f"{self._base_path}/{id}",
-            json=payload,
-        ).json()
+        return self._client.patch(f"{self._base_path}/{id}", json=payload).json()

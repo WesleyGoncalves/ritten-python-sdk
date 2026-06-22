@@ -24,9 +24,9 @@ class Programs(Resource):
         self,
         limit: int = 20,
         offset: int = 0,
-        search: str = None,
-        programType: str = None,
-        facility_id: str = None,
+        search: str | None = None,
+        programType: str | None = None,
+        facility_id: str | None = None,
     ) -> Dict[str, Any]:
         """Lists active programs configured in the clinic."""
         params = {"limit": limit, "offset": offset}

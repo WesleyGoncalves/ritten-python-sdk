@@ -46,7 +46,7 @@ class RittenAuthError(RittenError):
 class RittenAPIError(RittenError):
     """Base class for errors returned by the Ritten API (HTTP 4xx and 5xx)."""
 
-    def __init__(self, message: str, status_code: int, payload: dict = None):
+    def __init__(self, message: str, status_code: int, payload: dict | None = None):
         super().__init__(message)
         self.status_code = status_code
         self.payload = payload or {}
