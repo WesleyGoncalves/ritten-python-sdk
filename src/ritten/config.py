@@ -5,7 +5,7 @@ Ritten SDK Configuration.
 :license: MIT, see LICENSE for more details.
 """
 
-from typing import Optional, Any
+from typing import Any
 from pydantic import (
     BaseModel,
     Field,
@@ -32,16 +32,16 @@ class Config(BaseModel):
     )
 
     # Authentication
-    tenant_id: Optional[str] = Field(
+    tenant_id: str | None = Field(
         default="ritclinic",
         description="Tenant ID for the Ritten API.",
     )
 
-    client_id: Optional[str] = Field(
+    client_id: str | None = Field(
         default=None,
         description="Client ID for authentication.",
     )
-    client_secret: Optional[str] = Field(
+    client_secret: str | None = Field(
         default=None,
         description="Client secret for authentication.",
     )
