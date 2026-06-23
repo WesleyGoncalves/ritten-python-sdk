@@ -8,16 +8,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Authentication to Ritten API.
-- Token Storage and in-memory storage implementation.
-- Calendar resource
-- Cases resource
-- Contacts resource
-- Forms resource
-- Insurance resource
-- Patients resource
-- Users resource
-
 ### Changed
 
 ### Deprecated
@@ -31,3 +21,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Dev Notes
 
 ---
+
+## 1.0.0 - 2026-06-22
+
+### Added
+
+- Authentication to Ritten API.
+- Token Storage and in-memory storage implementation.
+- Calendar resource
+- Cases resource
+- Contacts resource
+- Facilities resource
+- Forms resource
+- Insurance resource
+- Organizations resource
+- Patients resource
+- Programs resource
+- Users resource

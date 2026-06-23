@@ -1,7 +1,7 @@
 [project]
 name = "ritten-python-sdk"
-version = "0.1.0"
-description = "Python SDK for connecting applications to the [Ritten EMR Platform](https://docs.ritten.io/). This library simplifies integration with Ritten's Behavioral Health Operations API, allowing developers to use Ritten API seamlessly from any Python environment."
+version = "1.0.0"
+description = "Python SDK for connecting applications to the Ritten EMR Platform. Simplifies integration with the Behavioral Health Operations API."
 keywords = ["ritten", "emr", "healthcare", "sdk", "python"]
 authors = [
     {name = "Wesley Gonçalves",email = "dev@wesleygoncalves.com"}
@@ -10,8 +10,8 @@ license-files = ["LICENSE"]
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "httpx (>=0.28.1,<0.29.0)",
-    "pydantic (>=2.13.4,<3.0.0)"
+    "httpx >=0.28.1,<0.29.0",
+    "pydantic >=2.13.4,<3.0.0"
 ]
 
 [project.urls]
