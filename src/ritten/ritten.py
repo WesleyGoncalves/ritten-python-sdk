@@ -25,41 +25,46 @@ from ritten.resources import (
     Programs,
     Users,
 )
+from ritten.storage import TokenStorage
 
 
 class Ritten:
-    """
-    A client for interacting with the Ritten API.
-
-    Features:
-    - Connection pooling with configurable limits to optimize performance and resource usage.
-    - Timeout to prevent hanging requests.
-    """
+    """A client for interacting with the Ritten API."""
 
     @exception_handler
-    def __init__(self, config: Config):
+    def __init__(
+        self,
+        tenant_id: str | None = None,
+        client_id: str | None = None,
+        client_secret: str | None = None,
+        storage: TokenStorage | None = None,
+        *,
+        config: Config | None = None,
+    ):
         """Initialize the RittenClient with authentication and connection settings."""
-        self.config = config
+
+        self.config: Config
+        if config:
+            self.config = config
+        elif tenant_id and client_id and client_secret:
+            self.config = Config(
+                tenant_id=tenant_id,
+                client_id=client_id,
+                client_secret=client_secret,
+                storage=storage,
+            )
+        else:
+            raise RittenClientError(
+                "Either a Config object or tenant_id, client_id, and client_secret must be provided."
+            )
+
+        self.auth = Auth(self.config)
 
         try:
-            # Configure limits explicitly based on user inputs
-            limits = httpx.Limits(
-                max_connections=config.max_connections,
-                max_keepalive_connections=config.max_keepalive_connections,
-                keepalive_expiry=config.keepalive_expiry,
-            )
-
-            self.client = httpx.Client(
-                base_url=config.base_url,
-                headers=self._get_default_headers(),
-                auth=self.auth,
-                limits=limits,
-                timeout=config.timeout,
-                event_hooks={"response": [self._raise_on_error_hook]},
-            )
+            self._build_http_client()
         except Exception as e:
             raise RittenClientError(
-                f"Failed to initialize HTTP client: {str(e)}"
+                f"Failed to initialize HTTP client: {str(e)}."
             ) from e
 
     def _get_default_headers(self) -> dict:
@@ -89,15 +94,29 @@ class Ritten:
             ExceptionClass = ERROR_MAP.get(status_code, RittenAPIError)
             raise ExceptionClass(error_message, status_code) from e
 
+    def _build_http_client(self) -> None:
+        """Build an HTTP client with the specified configuration."""
+
+        # Configure limits explicitly based on user inputs
+        limits = httpx.Limits(
+            max_connections=self.config.max_connections,
+            max_keepalive_connections=self.config.max_keepalive_connections,
+            keepalive_expiry=self.config.keepalive_expiry,
+        )
+
+        self.client = httpx.Client(
+            base_url=self.config.base_url,
+            headers=self._get_default_headers(),
+            auth=self.auth,
+            limits=limits,
+            timeout=self.config.timeout,
+            event_hooks={"response": [self._raise_on_error_hook]},
+        )
+
     @exception_handler
     def close(self):
         """Close the HTTP client and release resources."""
         self.client.close()
-
-    @cached_property
-    def auth(self):
-        """Access the Auth service."""
-        return Auth(self.config)
 
     # --- Resource Accessors ---
 
